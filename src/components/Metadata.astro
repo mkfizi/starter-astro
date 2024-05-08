@@ -1,0 +1,115 @@
+---
+import Site from "../site.mjs";
+---
+
+<!-- Metadata -->
+<meta charset="UTF-8" />
+<meta
+	http-equiv="X-UA-Compatible"
+	content="IE=edge"
+/>
+<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1.0"
+/>
+<meta
+	name="theme-color"
+	content="#ffffff"
+/>
+<meta
+	name="generator"
+	content={Astro.generator}
+/>
+
+<!-- SEO -->
+<meta
+	name="title"
+	content={Site.name}
+/>
+<meta
+	name="description"
+	content={Site.description}
+/>
+<meta
+	name="robots"
+	content="index, follow"
+/>
+
+<!-- Open graph -->
+<meta
+	property="og:url"
+	content="/siteUrl"
+/>
+<meta
+	property="og:type"
+	content="website"
+/>
+<meta
+	property="og:title"
+	content={Site.name}
+/>
+<meta
+	property="og:image"
+	content="../img/meta-og.jpg"
+/>
+<meta
+	property="og:description"
+	content={Site.description}
+/>
+<meta
+	property="og:site_name"
+	content={Site.name}
+/>
+
+<!-- Twitter cards -->
+<meta
+	name="twitter:card"
+	content="summary"
+/>
+<meta
+	name="twitter:site"
+	content="@mkfizi"
+/>
+<meta
+	name="twitter:creator"
+	content="@mkfizi"
+/>
+<meta
+	name="twitter:url"
+	content="/siteUrl"
+/>
+<meta
+	name="twitter:title"
+	content={Site.name}
+/>
+<meta
+	name="twitter:description"
+	content={Site.description}
+/>
+<meta
+	name="twitter:image"
+	content="../img/meta-card.jpg"
+/>
+
+<!-- Favicon -->
+<link
+	rel="apple-touch-icon"
+	sizes="180x180"
+	href="./apple-touch-icon.png"
+/>
+<link
+	rel="icon"
+	type="image/png"
+	sizes="32x32"
+	href="./favicon-32x32.png"
+/>
+<link
+	rel="icon"
+	type="image/png"
+	sizes="16x16"
+	href="./favicon-16x16.png"
+/>
+<link
+	rel="manifest"
+	href="./site.webmanifest"
+/>
