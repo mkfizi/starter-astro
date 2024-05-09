@@ -18,7 +18,7 @@ const { title } = Astro.props;
 		<script src="../js/index.js"></script>
 
 		<!-- Below code must execute here to avoid FOUC. -->
-		<script is:inline>
+		<script defer>
 			// Handle dark mode toggle when the page is loaded.
 			if (
 				localStorage.theme === "dark" ||
@@ -30,14 +30,16 @@ const { title } = Astro.props;
 				document.documentElement.classList.remove("dark");
 			}
 
-			// Workaround fix to handle viewport height issue on mobile browsers
-			// https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
-			function resizeViewportHeight() {
+			/**
+			 * Workaround fix to handle viewport height issue on mobile browsers
+			 * https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
+			 */
+			const resizeViewportHeight = () => {
 				document.documentElement.style.setProperty(
 					"--vh",
 					window.innerHeight * 0.01 + "px"
 				);
-			}
+			};
 
 			window.addEventListener("resize", resizeViewportHeight);
 			resizeViewportHeight();
