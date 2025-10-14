@@ -1,13 +1,13 @@
 import { defineConfig } from 'astro/config';
-import tailwind from "@astrojs/tailwind";
+import alpinejs from '@astrojs/alpinejs';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
     /**
-     * Output path to accomodate deployment on Github Pages using 'docs` branch.
-     * Update 'prebuild' script in `package.json if this value is changed 
+     * By default, Astro outputs to './dist'. To deploy to GitHub Pages,
+     * you can change this to './docs'.
      */
-    outDir: './docs',
-
+    // outDir: './docs',
     // Set 'enable' to 'false' to disable Astro dev toolbar.
     devToolbar: {
         enabled: false
@@ -18,5 +18,8 @@ export default defineConfig({
             description: "Starter boilerplate for Astro projects.",
         }
     },
-    integrations: [tailwind()]
+  integrations: [alpinejs({ entrypoint: '/src/js/alpine.ts' })],
+    vite: {
+        plugins: [tailwindcss()],
+    },
 });

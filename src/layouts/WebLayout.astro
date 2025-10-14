@@ -1,0 +1,77 @@
+---
+import '../css/app.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+const { 
+    site = "Starter Astro",
+    title = null,
+    description = "Starter kit for Astro projects with AlpineJS and TailwindCSS.",
+    url = "https://mkfizi.dev",
+    image = "/path/to/img/meta-og.jpg",
+    twitterImage = "/path/to/img/meta-card.jpg",
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" x-data="app">
+	<head>
+		<!-- Metadata -->
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="theme-color" content="#ffffff">
+		<meta name="generator" content={Astro.generator} />
+		<!-- END Metadata -->
+		<!-- SEO -->
+		<meta name="title" content={site}>
+		<meta name="description" content={description}>
+		<meta name="robots" content="index, follow">
+		<!-- END SEO -->	
+		<!-- Facebook Open Graph -->
+		<meta property="og:url" content={url}>
+		<meta property="og:type" content="website">
+		<meta property="og:title" content={site}>
+		<meta property="og:image" content={image}>
+		<meta property="og:description" content={description}>
+		<meta property="og:site_name" content={site}>
+		<!-- END Facebook Open Graph -->
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@mkfizi">
+		<meta name="twitter:creator" content="@mkfizi">
+		<meta name="twitter:url" content={url}>
+		<meta name="twitter:title" content={site}>
+		<meta name="twitter:description" content={description}>
+		<meta name="twitter:image" content={twitterImage}>
+		<!-- END Twitter Card -->
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="manifest" href="/manifest.json">
+		<!-- END Favicon -->
+		<!-- Prevent FOUC -->
+        <script>
+            // Toggle theme.
+            // localStorage.theme = 'dark';
+            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+        </script>
+        <!-- END Prevent FOUC -->
+		<title>{title && `${title} |`} {site}</title>
+	</head>
+	<body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
+        <!-- Navbar Component -->
+        <Navbar />
+        <!-- END Navbar Component -->
+        <!-- Content -->
+        <main class="mx-auto px-4 sm:px-8 py-16 w-full max-w-screen-xl">  
+            <slot />
+        </main>
+        <!-- END Content -->   
+        <!-- Footer -->
+        <Footer />
+        <!-- END Footer -->
+    </body>
+</html>

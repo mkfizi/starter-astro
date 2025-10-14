@@ -1,17 +1,14 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import WebLayout from '../layouts/WebLayout.astro';
 ---
 
-<BaseLayout title="Home">
-	<div
-		class="max-w-screen-xl px-4 py-16 mx-auto sm:py-24 lg:py-32 sm:px-6 lg:px-8"
-	>
-		<section class="py-16">
-			<h1
-				class="text-4xl font-extrabold text-center text-black sm:text-5xl lg:text-6xl dark:text-white"
-			>
-				Starter Astro
-			</h1>
-		</section>
-	</div>
-</BaseLayout>
+<WebLayout>
+<section class="space-y-2 mt-48 sm:mt-64 max-w-4xl">
+	<h1 class="font-extrabold text-black dark:text-white text-4xl sm:text-5xl lg:text-6xl">UI Sandbox</h1>
+	<h2 class="font-medium text-neutral-800 dark:text-neutral-200 text-base">
+		<span>This is a sandbox for </span>
+		<a href="https://github.com/mkfizi" target="_blank" class="font-medium text-black hover:dark:text-neutral-200 hover:text-neutral-700 focus:dark:text-neutral-200 focus:text-neutral-700 dark:text-white cursor-pointer">@mkfizi</a> 
+		<span> projects with TailwindCSS.</span>
+	</h2>
+</section>
+</WebLayout>

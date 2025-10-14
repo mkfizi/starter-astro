@@ -1,17 +1,11 @@
-<footer
-	class="absolute bottom-0 w-full max-w-screen-xl px-4 pb-px text-center transform -translate-x-1/2 left-1/2 sm:px-6 xl:px-8"
->
-	<span class="text-sm text-neutral-800 dark:text-neutral-200">
-		<span
-			x-data="{ currentYear: new Date().getFullYear() }"
-			x-text="currentYear"
-			>0000</span
-		>&nbsp;© Developed by
-		<a
-			href="https://mkfizi.dev"
-			target="_blank"
-			class="text-sm text-neutral-500 dark:text-neutral-400 hover:text-black hover:dark:text-white"
-			>mkfizi</a
-		>
-	</span>
+<footer class="bottom-1 left-1/2 absolute px-4 sm:px-8 pb-px w-full max-w-screen-xl -translate-x-1/2 transform">
+    <div class="flex justify-between">
+        <span class="text-neutral-700 dark:text-neutral-300 text-sm">
+            <span>Copyright © </span><span x-text="new Date().getFullYear()"></span>
+        </span>
+        <span class="text-neutral-700 dark:text-neutral-300 text-sm">
+            <span>Developed by </span>
+            <a href="https://mkfizi.dev" target="_blank" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">mkfizi</a>
+        </span>
+    </div>
 </footer>
