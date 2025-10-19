@@ -1,3 +1,11 @@
+---
+const { page } = Astro.props;
+const links = [
+    { name: "Home", href: '/' },
+    { name: "Blog", href: '/blog' },
+];
+---
+
 <nav class="w-full"
     x-data="{
         breakpoint: 1024,
@@ -10,7 +18,7 @@
     "
 >
     <div class="flex justify-between items-center mx-auto px-4 sm:px-8 py-2 max-w-screen-xl">
-        <a href="#" class="font-medium text-neutral-800 dark:text-neutral-200 text-base">Title</a>
+        <a href="/" class="font-medium text-neutral-800 dark:text-neutral-200 text-base">Title</a>
         <div class="flex items-center gap-2 lg:gap-6">
             <!-- Navbar Menu -->
             <div id="navbar-menu" class="hidden invisible lg:visible lg:block top-0 lg:top-auto left-0 lg:left-auto z-10 lg:z-auto fixed lg:relative bg-black/80 lg:bg-transparent w-dvw lg:w-auto h-dvh lg:h-auto"
@@ -33,15 +41,14 @@
                     <!-- END Navbar Menu Close -->
                     <!-- Navbar Menu Links -->
                     <ul class="lg:flex lg:items-center lg:gap-8 space-y-1 lg:space-y-0 mt-8 lg:mt-0 leading-0">
-                        <li>
-                            <a href="#" class="inline-block bg-neutral-100 lg:bg-transparent lg:dark:bg-transparent dark:bg-neutral-800 px-3 lg:px-0 py-2 lg:py-0 rounded w-full font-medium text-black lg:hover:dark:text-neutral-200 lg:hover:text-neutral-700 lg:focus:dark:text-neutral-200 lg:focus:text-neutral-700 dark:text-white text-sm text-left cursor-pointer">Link 1</a>
-                        </li>
-                        <li>
-                            <a href="#" class="inline-block lg:hover:bg-transparent lg:dark:hover:bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 lg:px-0 py-2 lg:py-0 rounded w-full font-medium text-black lg:hover:dark:text-white lg:hover:text-black lg:focus:dark:text-white lg:focus:text-black lg:visited:text-neutral-700 lg:dark:text-neutral-400 lg:dark:visited:text-neutral-200 lg:text-neutral-500 dark:text-white text-sm text-left cursor-pointer">Link 2</a>
-                        </li>
-                        <li>
-                            <a href="#" class="inline-block lg:hover:bg-transparent lg:dark:hover:bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 lg:px-0 py-2 lg:py-0 rounded w-full font-medium text-black lg:hover:dark:text-white lg:hover:text-black lg:focus:dark:text-white lg:focus:text-black lg:visited:text-neutral-700 lg:dark:text-neutral-400 lg:dark:visited:text-neutral-200 lg:text-neutral-500 dark:text-white text-sm text-left cursor-pointer">Link 3</a>
-                        </li>
+                        {links.map((link) => (
+                            <li>    
+                                <a href={link.href} class={`inline-block font-medium cursor-pointer text-sm text-left text-black dark:text-white px-3 lg:px-0 py-2 lg:py-0 rounded w-full  ${page ===  link.name 
+                                        ? ' bg-neutral-100 lg:bg-transparent lg:dark:bg-transparent dark:bg-neutral-800 lg:hover:dark:text-neutral-200 lg:hover:text-neutral-700 lg:focus:dark:text-neutral-200 lg:focus:text-neutral-700'
+                                        : 'lg:hover:bg-transparent lg:dark:hover:bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 lg:hover:dark:text-white lg:hover:text-black lg:focus:dark:text-white lg:focus:text-black lg:visited:text-neutral-700 lg:dark:text-neutral-400 lg:dark:visited:text-neutral-200 lg:text-neutral-500'
+                                    }`}>{link.name}</a>
+                            </li>
+                        ))}
                     </ul>
                     <!-- END Navbar Menu Links -->
                 </div>
