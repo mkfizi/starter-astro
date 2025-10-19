@@ -1,14 +1,10 @@
 ---
-import WebLayout from '../layouts/WebLayout.astro';
+import WebLayout from '../layouts/partials/WebLayout.astro';
 ---
 
-<WebLayout>
+<WebLayout title="Home" page="Home">
 <section class="space-y-2 mt-48 sm:mt-64 max-w-4xl">
-	<h1 class="font-extrabold text-black dark:text-white text-4xl sm:text-5xl lg:text-6xl">UI Sandbox</h1>
-	<h2 class="font-medium text-neutral-800 dark:text-neutral-200 text-base">
-		<span>This is a sandbox for </span>
-		<a href="https://github.com/mkfizi" target="_blank" class="font-medium text-black hover:dark:text-neutral-200 hover:text-neutral-700 focus:dark:text-neutral-200 focus:text-neutral-700 dark:text-white cursor-pointer">@mkfizi</a> 
-		<span> projects with TailwindCSS.</span>
-	</h2>
+	<h1 class="font-extrabold text-black dark:text-white text-4xl sm:text-5xl lg:text-6xl">Starter Astro</h1>
+	<h2 class="font-medium text-neutral-800 dark:text-neutral-200 text-base">Starter kit for Astro projects with AlpineJS and TailwindCSS.</h2>
 </section>
 </WebLayout>

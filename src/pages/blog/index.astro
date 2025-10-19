@@ -1,0 +1,55 @@
+---
+import WebLayout from '../../layouts/partials/WebLayout.astro';
+
+const allPosts = Object.values(import.meta.glob('./**/*.md', { eager: true }));
+
+const posts = allPosts.filter((post: any) => {
+    const dateFormat = /^\d{4}-\d{2}-\d{2}$/;
+    const date = new Date(post.frontmatter.date.toString().slice(0,10));
+    if (!post.frontmatter?.date) return false;
+    if (!dateFormat.test(post.frontmatter.date.toString().slice(0,10))) return false;
+    if (isNaN(date.getTime())) return false;
+    return true;
+}).sort((a: any, b: any) => {
+    return new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime();
+}).reduce((acc: any, post: any) => {
+    const year = new Date(post.frontmatter.date.toString().slice(0,10)).getFullYear();
+    if (!acc[year]) acc[year] = [];
+    acc[year].push(post);
+    return acc;
+}, {});
+
+const tags = Array.from(new Set(allPosts.flatMap((post: any) => post.frontmatter?.tags || [])));
+---
+
+<WebLayout title="Blog" page="Blog">
+<section class="space-y-2 max-w-4xl">
+	<h1 class="font-extrabold text-black dark:text-white text-4xl sm:text-5xl lg:text-6xl">Blog</h1>
+	<h2 class="font-medium text-neutral-800 dark:text-neutral-200 text-base">Latest articles and updates.</h2>
+	<div class="space-y-4 mt-8">
+		{Object.entries(posts)
+			.sort((a, b) => parseInt(b[0]) - parseInt(a[0]))
+			.map(([year, postsByYear]: [string, any[]]) => (
+				<div key={year}>
+					<p class="font-medium text-neutral-800 dark:text-neutral-200 text-base">{year}</p>
+					<ul class="space-y-1 ml-4 dark:marker:text-neutral-200 marker:text-neutral-800 leading-0 list-disc">
+						{postsByYear.map((post: any) => (
+							<li key={post.url}>
+								<a href={post.url} class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">{post.frontmatter.title}</a>
+							</li>
+						))}
+					</ul>
+				</div>
+			))}
+	</div>
+	<div class="mt-8">
+		{tags && tags.length > 0 && (
+			<div class="flex flex-wrap gap-2">
+				{tags.map((tag: string) => (
+					<a href={`/blog/tags/${tag.toLowerCase()}`} class="inline-block bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700 disabled:opacity-60 px-2 py-px rounded w-max text-black dark:text-white text-xs cursor-pointer">{tag.charAt(0).toUpperCase() + tag.slice(1)}</a>
+				))}
+			</div>
+		)}
+	</div>
+</section>
+</WebLayout>
