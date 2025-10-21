@@ -3,11 +3,11 @@ layout: ../../../../layouts/partials/BlogLayout.astro
 title: "First Post"
 date: 2024-12-18
 description: "This is first post."
-image: "/src/img/blog/2024/12/first-post.jpg"
+image: "/src/assets/img/blog/2024/12/first-post.jpg"
 tags: ["notes"]
 ---
 
-![Alt text](/src/img/blog/2024/12/first-post.jpg "Image Example 1")
+![Alt text](/src/assets/img/blog/2024/12/first-post.jpg "Image Example 1")
 
 # Lessons From the Hills
 
@@ -40,7 +40,7 @@ and the trees nodded quietly in agreement.
 - **Effort** keeps you moving.  
 - **Reflection** keeps you growing.
 
-```js
+```js title ="hello.js"
 function greet(name) {
   return `Hello, ${name}!`;
 }

@@ -53,6 +53,6 @@
 
 /* Code Blocks */
 .markdown .astro-code {
-    @apply !bg-white dark:!bg-neutral-950 p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-x-auto;
+    @apply relative !bg-white dark:!bg-neutral-950 p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-x-auto;
     @apply font-mono text-sm leading-relaxed;
 }

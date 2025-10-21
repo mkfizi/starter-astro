@@ -3,11 +3,11 @@ layout: ../../../../layouts/partials/BlogLayout.astro
 title: "Third Post"
 date: 2025-02-25
 description: "This is third post."
-image: "/src/img/blog/2025/2/third-post.jpg"
+image: "/src/assets/img/blog/2025/2/third-post.jpg"
 tags: ["code"]
 ---
 
-![Alt text](/src/img/blog/2025/2/third-post.jpg "Image Example 3")
+![Alt text](/src/assets/img/blog/2025/2/third-post.jpg "Image Example 3")
 
 # Building Habits That Stick
 
