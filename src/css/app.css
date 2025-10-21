@@ -1,9 +1,7 @@
 @import 'tailwindcss';
 @import './markdown.css';
 
-/**
-* Use manual selector insted of media query for dark theme .
-*/
+/* Use manual selector insted of media query for dark theme. */
 @custom-variant dark (&:where(.dark, .dark *));
 
 /**
@@ -11,3 +9,12 @@
 * This is useful for Alpine.js components that should not be visible before Alpine.js is initialized.
 */
 [x-cloak] { display: none !important; }
+
+
+/* Override Shiki code block colors for dark mode. */
+@media (prefers-color-scheme: dark) {
+    .astro-code,
+    .astro-code span {
+        color: var(--shiki-dark) !important;
+    }
+}

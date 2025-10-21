@@ -3,6 +3,7 @@ import alpinejs from '@astrojs/alpinejs';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
+    // Site metadata.
     site: "https://mkfizi.dev",
 
     // By default, Astro outputs to './dist'. Change this to './docs' to deploy to GitHub Pages.
@@ -10,15 +11,22 @@ export default defineConfig({
 
     // Set 'enable' to 'false' to disable Astro dev toolbar.
     devToolbar: {
-        enabled: false
+        enabled: false,
     },
-    data: {
-        metadata: {
-            title: "Starter Astro",
-            description: "Starter boilerplate for Astro projects.",
-        }
+
+    // Markdown configuration.
+    markdown: {
+        shikiConfig: {
+            themes: {
+                light: 'github-light',
+                dark: 'github-dark',
+            },
+            wrap: true,
+        },
     },
-  integrations: [alpinejs({ entrypoint: '/src/js/alpine.ts' })],
+    
+    // Integrations and Vite plugins.
+    integrations: [alpinejs({ entrypoint: '/src/js/alpine.ts' })],
     vite: {
         plugins: [tailwindcss()],
     },
