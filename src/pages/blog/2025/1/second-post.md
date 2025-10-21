@@ -3,10 +3,11 @@ layout: ../../../../layouts/partials/BlogLayout.astro
 title: "Second Post"
 date: 2025-01-01
 description: "This is second post."
+image: "/src/img/blog/2025/1/second-post.jpg"
 tags: ["notes", "code"]
 ---
 
-![Alt text](https://picsum.photos/896/384 "Image Example 2")
+![Alt text](/src/img/blog/2025/1/second-post.jpg "Image Example 2")
 
 # The Quick Brown Fox
 

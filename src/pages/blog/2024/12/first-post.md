@@ -3,10 +3,11 @@ layout: ../../../../layouts/partials/BlogLayout.astro
 title: "First Post"
 date: 2024-12-18
 description: "This is first post."
+image: "/src/img/blog/2024/12/first-post.jpg"
 tags: ["notes"]
 ---
 
-![Alt text](https://picsum.photos/896/384 "Image Example 1")
+![Alt text](/src/img/blog/2024/12/first-post.jpg "Image Example 1")
 
 # Lessons From the Hills
 
@@ -45,5 +46,4 @@ function greet(name) {
 }
 
 console.log(greet("World"));
-
 ```

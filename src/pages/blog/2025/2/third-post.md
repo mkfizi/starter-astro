@@ -3,10 +3,11 @@ layout: ../../../../layouts/partials/BlogLayout.astro
 title: "Third Post"
 date: 2025-02-25
 description: "This is third post."
+image: "/src/img/blog/2025/2/third-post.jpg"
 tags: ["code"]
 ---
 
-![Alt text](https://picsum.photos/896/384 "Image Example 3")
+![Alt text](/src/img/blog/2025/2/third-post.jpg "Image Example 3")
 
 # Building Habits That Stick
 
@@ -24,3 +25,4 @@ Even small improvements compound over time.
 - Read 5 pages a day
 - Walk for 10 minutes
 - Write one paragraph
+```

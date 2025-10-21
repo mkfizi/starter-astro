@@ -5,13 +5,14 @@ const {
     title = frontmatter?.title,
     date = frontmatter?.date,
     description = frontmatter?.description,
+    image = frontmatter?.image,
     tags = frontmatter?.tags,
 	page = 'Blog',
     headings = getHeadings(),
 } = Astro.props;
 ---
 
-<BaseLayout title={title} page={page} description={description}>
+<BaseLayout title={title} page={page} description={description} image={image}>
      <div class="max-w-4xl">
         <div class="space-y-2">
             <h1 class="font-extrabold text-black dark:text-white text-4xl sm:text-5xl lg:text-6xl">{title}</h1>
@@ -22,7 +23,7 @@ const {
             <nav class="space-y-4 mt-8">
 				<p class="font-medium text-neutral-800 dark:text-neutral-200 text-base">Table of Contents</p>
                 <div class="p-4 border border-neutral-200 dark:border-neutral-800 rounded w-fit">
-                    <ul class="space-y-2 ml-4 text-neutral-800 dark:marker:text-neutral-200 dark:text-neutral-200 marker:text-neutral-800 text-smspace-y-2 leading-0 list-disc">
+                    <ul class="space-y-2 text-neutral-800 dark:marker:text-neutral-200 dark:text-neutral-200 marker:text-neutral-800 text-smspace-y-2 leading-0 list-none">
                         {headings.map((heading: any) => (
                             <li class={
                                 heading.depth === 1 ? 'ml-0' :

@@ -7,13 +7,14 @@ const {
 	title = null,
 	description = null,
 	page = null,
+    image = null,
 } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en" x-data="app">
 	<head>
-		<Head title={title} description={description} />
+		<Head title={title} description={description} image={image}/>
 	</head>
 	<body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Navbar Component -->
