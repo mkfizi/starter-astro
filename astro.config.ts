@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import alpinejs from '@astrojs/alpinejs';
 import tailwindcss from '@tailwindcss/vite';
+import shiki from './astro.plugins/shiki.ts';
 
 export default defineConfig({
     // Site metadata.
@@ -15,14 +16,8 @@ export default defineConfig({
     },
 
     // Markdown configuration.
-    markdown: {
-        shikiConfig: {
-            themes: {
-                light: 'github-light',
-                dark: 'github-dark',
-            },
-            wrap: true,
-        },
+    markdown: { 
+        shikiConfig: shiki,
     },
     
     // Integrations and Vite plugins.
