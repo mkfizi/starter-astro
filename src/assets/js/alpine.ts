@@ -1,4 +1,4 @@
-import type { Alpine } from 'alpinejs';
+import type { Alpine } from '@astrojs/alpinejs';
 import anchor from '@alpinejs/anchor';
 import focus from '@alpinejs/focus';
 import persist from '@alpinejs/persist';
