@@ -43,16 +43,10 @@
 
 /* Blockquotes */
 .markdown :where(blockquote) {
-    @apply p-4 border-neutral-300 dark:border-neutral-700 border-l-4;
+    @apply p-4 border-neutral-50 dark:border-neutral-900 border-l-4;
 }
 
 /* Divider */
 .markdown :where(hr) {
     @apply border-neutral-200 dark:border-neutral-800;
-}
-
-/* Code Blocks */
-.markdown .astro-code {
-    @apply relative !bg-white dark:!bg-neutral-950 p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-x-auto;
-    @apply font-mono text-sm leading-relaxed;
 }
