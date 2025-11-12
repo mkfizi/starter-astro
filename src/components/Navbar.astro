@@ -6,27 +6,31 @@ const links = [
 ];
 ---
 
-<nav class="w-full"
+<nav class="top-0 z-10 sticky w-full"
     x-data="{
         breakpoint: 1024,
         isNavbarMenuOpen: false,
+        isScrolled: window.scrollY > 0
     }"
     @resize.window="
         if (window.innerWidth >= breakpoint) {
             isNavbarMenuOpen = false;
         }
     "
+    @scroll.window="isScrolled = window.scrollY > 0;"
+    :class="isScrolled
+        ? 'bg-white dark:bg-neutral-950 border-b border-neutral-200 dark:border-neutral-800'
+        : 'bg-transparent dark:bg-transparent border-transparent'"
 >
     <div class="flex justify-between items-center mx-auto px-4 sm:px-8 py-2 max-w-screen-xl">
         <a href="/" class="font-medium text-neutral-800 dark:text-neutral-200 text-base">Title</a>
         <div class="flex items-center gap-2 lg:gap-6">
             <!-- Navbar Menu -->
             <div id="navbar-menu" class="hidden invisible lg:visible lg:block top-0 lg:top-auto left-0 lg:left-auto z-10 lg:z-auto fixed lg:relative bg-black/80 lg:bg-transparent w-dvw lg:w-auto h-dvh lg:h-auto"
-                x-show="isNavbarMenuOpen || window.innerWidth >= breakpoint"
                 x-trap.noautofocus.noscroll="isNavbarMenuOpen && window.innerWidth < breakpoint"
                 @click.self="isNavbarMenuOpen = false"
                 @keydown.escape.window="isNavbarMenuOpen = false"
-                :class="{ 'hidden invisible' : !isNavbarMenuOpen }"
+                :class="{ 'hidden invisible' : !isNavbarMenuOpen || window.innerWidth >= breakpoint }"
                 :inert="!isNavbarMenuOpen && window.innerWidth < breakpoint"
             >
                 <!-- Navbar Menu Drawer -->
