@@ -6,30 +6,76 @@ description: "This is a code post."
 tags: ["notes", "code"]
 ---
 
-# The Quick Brown Fox
-
-```js title="hello.js"
-function greet(name) {
-  return `Hello, ${name}!`;
+Default
+```ts
+function greet(name: string): string {
+    return `Hello, ${name}!`;
 }
-
-console.log(greet("World"));
 ```
 
 ---
 
-# To Be Or Not To Be
-<!-- 
-```php
-import { Switch } from "@/components/ui/switch"
- 
-const MyPage = () => {
-  return (
-    <div>
-      <Switch />
-    </div>
-  );
-};
- 
-export default MyPage;
-``` -->
+Copy button disabled
+```ts copy="false"
+function greet(name: string): string {
+    return `Hello, ${name}!`;
+}
+```
+---
+
+With Title
+```ts title="greet.ts"
+function greet(name: string): string {
+    return `Hello, ${name}!`;
+}
+```
+---
+
+transformerNotationDiff()
+```ts
+console.log("Minus") // [!code --]
+console.log("Add") // [!code ++]
+console.log("Equal")
+```
+---
+
+transformerNotationHighlight()
+```ts
+console.log("Yes")
+console.log("Highlight") // [!code highlight]
+console.log("No")
+```
+---
+
+transformerNotationHighlight()
+```ts
+// [!code highlight:3]
+console.log("Yes")
+console.log("Highlight")
+console.log("No")
+```
+---
+
+transformerNotationWordHighlight()
+```ts
+// [!code word:Highlight]
+console.log("Yes")
+console.log("Highlight")
+console.log("No")
+```
+---
+
+transformerNotationFocus()
+```ts
+console.log("Yes")
+console.log("Focused") // [!code focus]
+console.log("No")
+```
+---
+                
+transformerNotationErrorLevel() 
+```ts
+console.log("Yes")
+console.log("Error") // [!code error]
+console.log("Warning") // [!code warning]
+```

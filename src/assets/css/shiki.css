@@ -20,11 +20,12 @@ html.dark .astro-code span {
 }
 
 /* Code title styles */
-.code-header{
+.code-header {
     @apply flex px-4 pt-4;
 }
+
 .code-header > p {
-    @apply font-mono font-semibold text-neutral-500 text-sm;
+    @apply bg-neutral-200 dark:bg-neutral-800 px-2 py-px rounded w-max font-mono text-black dark:text-white text-xs;
 }
 
 /* Copy button styles */
