@@ -39,7 +39,7 @@ html.dark .astro-code span {
 
 /* Shiki pre styles */
 .astro-code {
-    @apply overflow-x-auto break-all whitespace-pre-wrap;
+    @apply overflow-x-auto;
 }
 
 .astro-code code {

@@ -13,7 +13,7 @@ const config = {
         dark: 'github-dark',
     },
     langs: ['js', 'ts', 'json', 'html', 'css', 'bash', 'markdown'],
-    wrap: true,
+    wrap: false,
 };
 
 
