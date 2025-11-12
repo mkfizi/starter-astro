@@ -3,12 +3,16 @@
  */
 
 /* Override Shiki code block colors for dark mode. */
-@media (prefers-color-scheme: dark) {
+html.dark .astro-code,
+html.dark .astro-code span {
+    color: var(--shiki-dark) !important;
+}
+/* @media (prefers-color-scheme: dark) {
     .astro-code,
     .astro-code span {
         color: var(--shiki-dark) !important;
     }
-}
+} */
 
 /* Code wrapper styles */
 .code-block {
