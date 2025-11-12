@@ -6,75 +6,57 @@ description: "This is a code post."
 tags: ["notes", "code"]
 ---
 
-Default
 ```ts
 function greet(name: string): string {
     return `Hello, ${name}!`;
 }
 ```
 
----
-
-Copy button disabled
 ```ts copy="false"
 function greet(name: string): string {
     return `Hello, ${name}!`;
 }
 ```
----
 
-With Title
 ```ts title="greet.ts"
 function greet(name: string): string {
     return `Hello, ${name}!`;
 }
 ```
----
 
-transformerNotationDiff()
-```ts
+```ts title="transformerNotationDiff()"
 console.log("Minus") // [!code --]
 console.log("Add") // [!code ++]
 console.log("Equal")
 ```
----
 
-transformerNotationHighlight()
-```ts
+```ts title="transformerNotationHighlight()"
 console.log("Yes")
 console.log("Highlight") // [!code highlight]
 console.log("No")
 ```
----
 
-transformerNotationHighlight()
-```ts
+```ts title="transformerNotationHighlight()"
 // [!code highlight:3]
 console.log("Yes")
 console.log("Highlight")
 console.log("No")
 ```
----
 
-transformerNotationWordHighlight()
-```ts
+```ts title="transformerNotationWordHighlight()"
 // [!code word:Highlight]
 console.log("Yes")
 console.log("Highlight")
 console.log("No")
 ```
----
 
-transformerNotationFocus()
-```ts
+```ts title="transformerNotationFocus()"
 console.log("Yes")
 console.log("Focused") // [!code focus]
 console.log("No")
 ```
----
                 
-transformerNotationErrorLevel() 
-```ts
+```ts title="transformerNotationErrorLevel()"
 console.log("Yes")
 console.log("Error") // [!code error]
 console.log("Warning") // [!code warning]

@@ -1,14 +1,28 @@
 ---
 import WebLayout from '../../../layouts/partials/WebLayout.astro';
+import H1 from '../../../components/partials/H1.astro';
+import Text from '../../../components/partials/Text.astro';
+import TextLink from '../../../components/partials/TextLink.astro';
+import List from '../../../components/partials/List.astro';
+import ListItem from '../../../components/partials/ListItem.astro';
 
 export async function getStaticPaths() {
-const allPosts = Object.values(import.meta.glob('../**/*.md', { eager: true }));
+    const allPosts = Object.values(import.meta.glob('../**/*.md', { eager: true }));
 
-  return [
-    { params: { tag: "code" }, props: { posts: allPosts.filter(post => post.frontmatter?.tags?.includes("code")) } },
-    { params: { tag: "notes" }, props: { posts: allPosts.filter(post => post.frontmatter?.tags?.includes("notes")) } },
-  ];
+    // Get all tags from all posts
+    const tags = Array.from(
+        new Set(
+            allPosts.flatMap(post => post.frontmatter?.tags ?? [])
+        )
+    );
+
+    // Generate a path for each tag
+    return tags.map(tag => ({
+        params: { tag },
+        props: { posts: allPosts.filter(post => post.frontmatter?.tags?.includes(tag)) }
+    }));
 }
+
 const { tag } = Astro.params;
 const { posts } = Astro.props;
 const capitalizedTag = tag.charAt(0).toUpperCase() + tag.slice(1);
@@ -17,17 +31,17 @@ const postsByTag = posts.filter((post: any) => post.frontmatter.tags?.includes(t
 <WebLayout title={capitalizedTag} page="Blog">
 
     <section class="space-y-2 max-w-4xl">
-        <h1 class="font-extrabold text-black dark:text-white text-4xl sm:text-5xl lg:text-6xl">Blog</h1>
-        <h2 class="font-medium text-neutral-800 dark:text-neutral-200 text-base">Posts tagged with "{capitalizedTag}".</h2>
-        <ul class="space-y-1 mt-8 ml-4 dark:marker:text-neutral-200 marker:text-neutral-800 leading-0 list-disc">
+        <H1>Blog</H1>
+        <Text>Posts tagged with "{capitalizedTag}".</Text>
+        <List>
             {postsByTag.map((post: any) => (
-                <li key={post.url}>
-                    <a href={post.url} class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">{post.frontmatter.title}</a>
-                </li>
+                <ListItem key={post.url}>
+                    <TextLink href={post.url}>{post.frontmatter.title}</TextLink>
+                </ListItem>
             ))}
-        </ul>
+        </List>
         <div class="mt-8">
-            <a href="/blog" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">&larr; View all posts</a>
+            <TextLink href="/blog">&larr; View all posts</TextLink>
         </div>
     </section>
 </WebLayout>

@@ -1,5 +1,11 @@
 ---
 import WebLayout from '../../layouts/partials/WebLayout.astro';
+import H1 from '../../components/partials/H1.astro';
+import Text from '../../components/partials/Text.astro';
+import TextTitle from '../../components/partials/TextTitle.astro';
+import TextLink from '../../components/partials/TextLink.astro';
+import List from '../../components/partials/List.astro';
+import ListItem from '../../components/partials/ListItem.astro';
 
 const allPosts = Object.values(import.meta.glob('./**/*.md', { eager: true }));
 
@@ -24,21 +30,21 @@ const tags = Array.from(new Set(allPosts.flatMap((post: any) => post.frontmatter
 
 <WebLayout title="Blog" page="Blog">
 <section class="space-y-2 max-w-4xl">
-	<h1 class="font-extrabold text-black dark:text-white text-4xl sm:text-5xl lg:text-6xl">Blog</h1>
-	<h2 class="font-medium text-neutral-800 dark:text-neutral-200 text-base">Latest articles and updates.</h2>
+	<H1>Blog</H1>
+	<Text>Latest articles and updates.</Text>
 	<div class="space-y-4 mt-8">
 		{Object.entries(posts)
 			.sort((a, b) => parseInt(b[0]) - parseInt(a[0]))
 			.map(([year, postsByYear]: [string, any[]]) => (
-				<div key={year}>
-					<p class="font-medium text-neutral-800 dark:text-neutral-200 text-base">{year}</p>
-					<ul class="space-y-1 ml-4 dark:marker:text-neutral-200 marker:text-neutral-800 leading-0 list-disc">
+				<div key={year} class="space-y-2">
+					<TextTitle>{year}</TextTitle>
+					<List>
 						{postsByYear.map((post: any) => (
-							<li key={post.url}>
-								<a href={post.url} class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">{post.frontmatter.title}</a>
-							</li>
+							<ListItem key={post.url}>
+								<TextLink href={post.url}>{post.frontmatter.title}</TextLink>
+							</ListItem>
 						))}
-					</ul>
+					</List>
 				</div>
 			))}
 	</div>
@@ -46,7 +52,7 @@ const tags = Array.from(new Set(allPosts.flatMap((post: any) => post.frontmatter
 		{tags && tags.length > 0 && (
 			<div class="flex flex-wrap gap-2">
 				{tags.map((tag: string) => (
-					<a href={`/blog/tags/${tag.toLowerCase()}`} class="inline-block bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700 disabled:opacity-60 px-2 py-px rounded w-max text-black dark:text-white text-xs cursor-pointer">{tag.charAt(0).toUpperCase() + tag.slice(1)}</a>
+					<TextLink href={`/blog/tags/${tag.toLowerCase()}`} class="underline">{tag.charAt(0).toUpperCase() + tag.slice(1)}</TextLink>
 				))}
 			</div>
 		)}

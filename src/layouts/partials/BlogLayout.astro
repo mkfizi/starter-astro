@@ -1,5 +1,10 @@
 ---
 import BaseLayout from '../BaseLayout.astro';
+import H1 from '../../components/partials/H1.astro';
+import Text from '../../components/partials/Text.astro';
+import TextLink from '../../components/partials/TextLink.astro';
+import List from '../../components/partials/List.astro';
+import ListItem from '../../components/partials/ListItem.astro';
 
 const { frontmatter } = Astro.props;
 const { 
@@ -16,25 +21,25 @@ const {
 <BaseLayout title={title} page={page} description={description} image={image}>
      <div class="max-w-4xl">
         <div class="space-y-2">
-            <h1 class="font-extrabold text-black dark:text-white text-4xl sm:text-5xl lg:text-6xl">{title}</h1>
-            <p class="text-neutral-800 dark:text-neutral-200 text-sm">Published on: {date?.toString().slice(0,10)}</p>
+            <H1>{title}</H1>
+            <Text>Published on: {date?.toString().slice(0,10)}</Text>
         </div>
         <!-- Table of Contents -->
         { headings.length > 0 && (
             <nav class="space-y-4 mt-8">
 				<p class="font-medium text-neutral-800 dark:text-neutral-200 text-base">Table of Contents</p>
                 <div class="p-4 border border-neutral-200 dark:border-neutral-800 rounded w-fit">
-                    <ul class="space-y-2 text-neutral-800 dark:marker:text-neutral-200 dark:text-neutral-200 marker:text-neutral-800 text-smspace-y-2 leading-0 list-none">
+                    <List class="!list-none">
                         {headings.map((heading: any) => (
-                            <li class={
+                            <ListItem class={
                                 heading.depth === 1 ? 'ml-0' :
                                 heading.depth === 2 ? 'ml-4' :
                                 heading.depth === 3 ? 'ml-8' : 'ml-0'
                             }>
-                                <a href={`#${heading.slug}`} class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">{heading.text}</a>
-                            </li>
+                                <TextLink href={`#${heading.slug}`}>{heading.text}</TextLink>
+                            </ListItem>
                         ))}
-                    </ul>
+                    </List>
                 </div>
             </nav>
         )}
@@ -50,14 +55,14 @@ const {
             {tags && tags.length > 0 && (
                 <div class="flex flex-wrap gap-2">
                     {tags.map((tag: string) => (
-                        <a href={`/blog/tags/${tag.toLowerCase()}`} class="inline-block bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700 disabled:opacity-60 px-2 py-px rounded w-max text-black dark:text-white text-xs cursor-pointer">{tag.charAt(0).toUpperCase() + tag.slice(1)}</a>
+                        <TextLink href={`/blog/tags/${tag.toLowerCase()}`} class="underline">{tag.charAt(0).toUpperCase() + tag.slice(1)}</TextLink>
                     ))}
                 </div>
             )}
         </div>
         <!-- END Tags -->
         <div class="mt-8">
-            <a href="/blog" class="font-medium text-neutral-500 hover:dark:text-white hover:text-black focus:dark:text-white focus:text-black visited:text-neutral-700 dark:text-neutral-400 dark:visited:text-neutral-200 text-sm cursor-pointer">&larr; Back</a>
+            <TextLink href="/blog">&larr; Back</TextLink>
         </div>
     </div>
 </BaseLayout>
