@@ -17,10 +17,11 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
-## [0.2.0] - 2025-11-02
+## [0.2.0] - 2025-11-12
 ### Added
 - Partials Web and Blog Layout
 - Blog components
+- Typography components
 - Dynamic blog tags.
 - Shiki integration.
 
@@ -33,7 +34,6 @@ Put unreleased changes here.
 ### Removed
 - TailwindCSS config file.
 - `site.mjs` file.
-
 
 ## [0.1.0] - 2024-05-08
 ### Added

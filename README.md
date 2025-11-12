@@ -1,37 +1,18 @@
 # Starter Astro
+Starter kit for Astro, AlpineJS and TailwindCSS projects.
 
-Starter boilerplate for Astro projects.
-
-Tech stacks:
-
--   Astro
--   AlpineJS
--   TailwindCSS
-
-By default, source code path is `/src` and build path is `/docs`. These paths can be configured in `vite.config.js`.
-
-`/src/site.mjs` is constant values specifically for site's content that are shared universally. Below is an example on how to access this values using frontmatter in `.astro` files.
-
-```astro
----
-import Site from `../site.mjs`;
----
-
-<p>This site name is {Site.name}<p>
-```
+## Description
+This barebone starter kit serves as starting point when developing web applications or sites. It eliminates the need for base configuration for when building Astro projects AlpineJS and Tailwind.
 
 ## Installation
-
 Clone this repository to get started.
 
-Execute the following command in project directory to install dependencies.
-
+Run the following command in project directory to install dependencies.
 ```bash
 npm install
 ```
 
-To run Astro, execute one of the following commands:
-
+Run one of the following commands to execute, build or preview site:
 ```bash
 npm run dev
 npm run build
