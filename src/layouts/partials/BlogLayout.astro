@@ -2,6 +2,7 @@
 import BaseLayout from '../BaseLayout.astro';
 import H1 from '../../components/partials/H1.astro';
 import Text from '../../components/partials/Text.astro';
+import TextTitle from '../../components/partials/Text.astro';
 import TextLink from '../../components/partials/TextLink.astro';
 import List from '../../components/partials/List.astro';
 import ListItem from '../../components/partials/ListItem.astro';
@@ -27,7 +28,7 @@ const {
         <!-- Table of Contents -->
         { headings.length > 0 && (
             <nav class="space-y-4 mt-8">
-				<p class="font-medium text-neutral-800 dark:text-neutral-200 text-base">Table of Contents</p>
+				<TextTitle>Table of Contents</TextTitle>
                 <div class="p-4 border border-neutral-200 dark:border-neutral-800 rounded w-fit">
                     <List class="!list-none">
                         {headings.map((heading: any) => (
@@ -51,7 +52,7 @@ const {
         <!-- END Markdown Content -->
         <!-- Tags -->
         <div class="space-y-4 mt-16">
-            <p class="font-medium text-neutral-800 dark:text-neutral-200 text-base">Tags:</p>
+            <TextTitle>Tags:</TextTitle>
             {tags && tags.length > 0 && (
                 <div class="flex flex-wrap gap-2">
                     {tags.map((tag: string) => (
