@@ -2,8 +2,8 @@
 import WebLayout from '../../layouts/partials/WebLayout.astro';
 import H1 from '../../components/partials/H1.astro';
 import Text from '../../components/partials/Text.astro';
-import TextTitle from '../../components/partials/TextTitle.astro';
-import TextLink from '../../components/partials/TextLink.astro';
+import Title from '../../components/partials/Title.astro';
+import Link from '../../components/partials/Link.astro';
 import List from '../../components/partials/List.astro';
 import ListItem from '../../components/partials/ListItem.astro';
 
@@ -37,11 +37,11 @@ const tags = Array.from(new Set(allPosts.flatMap((post: any) => post.frontmatter
 			.sort((a, b) => parseInt(b[0]) - parseInt(a[0]))
 			.map(([year, postsByYear]: [string, any[]]) => (
 				<div key={year} class="space-y-2">
-					<TextTitle>{year}</TextTitle>
+					<Title>{year}</Title>
 					<List>
 						{postsByYear.map((post: any) => (
 							<ListItem key={post.url}>
-								<TextLink href={post.url}>{post.frontmatter.title}</TextLink>
+								<Link href={post.url}>{post.frontmatter.title}</Link>
 							</ListItem>
 						))}
 					</List>
@@ -52,7 +52,7 @@ const tags = Array.from(new Set(allPosts.flatMap((post: any) => post.frontmatter
 		{tags && tags.length > 0 && (
 			<div class="flex flex-wrap gap-2">
 				{tags.map((tag: string) => (
-					<TextLink href={`/blog/tags/${tag.toLowerCase()}`} class="underline">{tag.charAt(0).toUpperCase() + tag.slice(1)}</TextLink>
+					<Link href={`/blog/tags/${tag.toLowerCase()}`} class="underline">{tag.charAt(0).toUpperCase() + tag.slice(1)}</Link>
 				))}
 			</div>
 		)}

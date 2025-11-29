@@ -2,7 +2,7 @@
 import WebLayout from '../../../layouts/partials/WebLayout.astro';
 import H1 from '../../../components/partials/H1.astro';
 import Text from '../../../components/partials/Text.astro';
-import TextLink from '../../../components/partials/TextLink.astro';
+import Link from '../../../components/partials/Link.astro';
 import List from '../../../components/partials/List.astro';
 import ListItem from '../../../components/partials/ListItem.astro';
 
@@ -36,12 +36,12 @@ const postsByTag = posts.filter((post: any) => post.frontmatter.tags?.includes(t
         <List>
             {postsByTag.map((post: any) => (
                 <ListItem key={post.url}>
-                    <TextLink href={post.url}>{post.frontmatter.title}</TextLink>
+                    <Link href={post.url}>{post.frontmatter.title}</Link>
                 </ListItem>
             ))}
         </List>
         <div class="mt-8">
-            <TextLink href="/blog">&larr; View all posts</TextLink>
+            <Link href="/blog">&larr; View all posts</Link>
         </div>
     </section>
 </WebLayout>

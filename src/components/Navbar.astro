@@ -1,6 +1,6 @@
 ---
-import TextLinkActive from './partials/TextLinkActive.astro';
-import TextLink from './partials/TextLink.astro';
+import LinkActive from './partials/LinkActive.astro';
+import Link from './partials/Link.astro';
 
 const { page } = Astro.props;
 const links = [
@@ -62,9 +62,9 @@ const links = [
                         {links.map((link) => (
                             <li>
                                 {page === link.name ? (
-                                    <TextLinkActive href={link.href}>{link.name}</TextLinkActive>
+                                    <LinkActive href={link.href}>{link.name}</LinkActive>
                                 ) : (
-                                    <TextLink href={link.href}>{link.name}</TextLink>
+                                    <Link href={link.href}>{link.name}</Link>
                                 )}
                             </li>
                         ))}

@@ -2,8 +2,8 @@
 import BaseLayout from '../BaseLayout.astro';
 import H1 from '../../components/partials/H1.astro';
 import Text from '../../components/partials/Text.astro';
-import TextTitle from '../../components/partials/Text.astro';
-import TextLink from '../../components/partials/TextLink.astro';
+import Title from '../../components/partials/Text.astro';
+import Link from '../../components/partials/Link.astro';
 import List from '../../components/partials/List.astro';
 import ListItem from '../../components/partials/ListItem.astro';
 
@@ -28,7 +28,7 @@ const {
         <!-- Table of Contents -->
         { headings.length > 0 && (
             <nav class="space-y-4 mt-8">
-				<TextTitle>Table of Contents</TextTitle>
+				<Title>Table of Contents</Title>
                 <div class="p-4 border border-neutral-200 dark:border-neutral-800 rounded w-fit">
                     <List class="list-none!">
                         {headings.map((heading: any) => (
@@ -37,7 +37,7 @@ const {
                                 heading.depth === 2 ? 'ml-4' :
                                 heading.depth === 3 ? 'ml-8' : 'ml-0'
                             }>
-                                <TextLink href={`#${heading.slug}`}>{heading.text}</TextLink>
+                                <Link href={`#${heading.slug}`}>{heading.text}</Link>
                             </ListItem>
                         ))}
                     </List>
@@ -52,18 +52,18 @@ const {
         <!-- END Markdown Content -->
         <!-- Tags -->
         <div class="space-y-4 mt-16">
-            <TextTitle>Tags:</TextTitle>
+            <Title>Tags:</Title>
             {tags && tags.length > 0 && (
                 <div class="flex flex-wrap gap-2">
                     {tags.map((tag: string) => (
-                        <TextLink href={`/blog/tags/${tag.toLowerCase()}`} class="underline">{tag.charAt(0).toUpperCase() + tag.slice(1)}</TextLink>
+                        <Link href={`/blog/tags/${tag.toLowerCase()}`} class="underline">{tag.charAt(0).toUpperCase() + tag.slice(1)}</Link>
                     ))}
                 </div>
             )}
         </div>
         <!-- END Tags -->
         <div class="mt-8">
-            <TextLink href="/blog">&larr; Back</TextLink>
+            <Link href="/blog">&larr; Back</Link>
         </div>
     </div>
 </BaseLayout>
