@@ -42,7 +42,7 @@ const links = [
                 x-trap.noautofocus.noscroll="isNavbarMenuOpen && window.innerWidth < breakpoint"
                 x-on:click.self="isNavbarMenuOpen = false"
                 x-on:keydown.escape.window="isNavbarMenuOpen = false"
-                :class="{ 'hidden invisible' : !isNavbarMenuOpen || window.innerWidth >= breakpoint }"
+                :class="{ 'hidden invisible pointer-events-none' : !isNavbarMenuOpen || window.innerWidth >= breakpoint }"
                 :inert="!isNavbarMenuOpen && window.innerWidth < breakpoint"
             >
                 <!-- Navbar Menu Drawer -->
