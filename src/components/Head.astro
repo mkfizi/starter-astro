@@ -5,8 +5,9 @@ const {
     description = "Starter kit for Astro projects with AlpineJS and TailwindCSS.",
     url = 'https://mkfizi.dev',
     image = '/src/assets/img/meta-og.jpg',
-    twitterImage = '/src/assets/img/meta-card.jpg',
 } = Astro.props;
+
+const imageUrl = image.startsWith('http') ? image : `${url}${image}`;
 ---
 <!-- Prevent FOUC -->
 <script is:inline>
@@ -32,7 +33,7 @@ const {
 <meta property="og:url" content={url}>
 <meta property="og:type" content="website">
 <meta property="og:title" content={title}>
-<meta property="og:image" content={image}>
+<meta property="og:image" content={imageUrl}>
 <meta property="og:description" content={description}>
 <meta property="og:site_name" content={site}>
 <!-- END Facebook Open Graph -->
@@ -43,7 +44,7 @@ const {
 <meta name="twitter:url" content={url}>
 <meta name="twitter:title" content={title}>
 <meta name="twitter:description" content={description}>
-<meta name="twitter:image" content={twitterImage}>
+<meta name="twitter:image" content={imageUrl}>
 <!-- END Twitter Card -->
 <!-- Favicon -->
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">

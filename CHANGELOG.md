@@ -17,6 +17,23 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
+## [0.2.1] - 2025-11-29
+### Added
+- Upgrade Astro to v5.16.2
+- Added icon to nav title.
+- Set `sm` breakpoint to start at 480px to handle small high resolution tablets with 2 DPR.
+- Add `pointer-events-none` to :class with `hidden` and `invisible`
+
+### Changed
+- Change shorthand '@' alpinejs handler to 'x-on:' for clarity.
+- Wrap svg icons in a container.
+- Update button style to support `stroke-*` for icons.
+- Put `dark:` selector to front.
+- Image metadata path.
+
+### Removed
+- Element attribute in props other that class in favour of `...rest`
+
 ## [0.2.0] - 2025-11-12
 ### Added
 - Partials Web and Blog Layout
