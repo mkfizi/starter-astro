@@ -7,7 +7,7 @@ const {
     image = '/src/assets/img/meta-og.jpg',
 } = Astro.props;
 
-const imageUrl = image.startsWith('http') ? image : `${url}${image}`;
+const imageUrl = image ? (image.startsWith('http') ? image : `${url}${image}`) : `${url}/images/metadata.jpg`;
 ---
 <!-- Prevent FOUC -->
 <script is:inline>
